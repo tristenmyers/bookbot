@@ -5,6 +5,10 @@ def number_of_words(book_text):#calculates num of words
         word_count += 1
     return word_count
 
+def check_for_entries(sys):#checks that the command has proper arguments
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
 
 def character_count(book_text):
     character_dictionary = {}
@@ -32,9 +36,9 @@ def sorted_list(character_dictionary):
     list_of_dictionaries.sort(reverse=True, key=sort)#BROKEN
     return list_of_dictionaries
 
-def print_report(wordcount,sorted_dictionary_list):
+def print_report(wordcount,sorted_dictionary_list,book_path):
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {book_path}...")
     print("----------- Word Count ----------")
     print(f"Found {wordcount} total words")
     print("--------- Character Count -------")
